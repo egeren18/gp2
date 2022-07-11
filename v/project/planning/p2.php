@@ -96,24 +96,22 @@ $contadorr++;
     <?php 
                 $_mp = mysqli_query($connection, "
                     SELECT * FROM riesgo
-                    WHERE amId = '" . $amId . "'
+                    WHERE status = 1
                     ");
-                $mp = $_mp -> fetch_object();
-            if($name = $mp -> statusId < 2){?>
+                
+                while ($mp = $_mp -> fetch_object()) {?>
           <tr>
-            <td id="border-grey"> a</td>
-            <td id="border-grey">b</td>
-            <td id="border-grey">v</td>
-            <td id="border-grey">d</td>
-            <td id="border-grey">e</td>
-            <td id="border-grey">f</td>
-            <td id="border-grey">g</td>
-            <td id="border-grey">h</td>
-            
-        
-            
+            <td id="border-grey"> <?php echo $mp -> orName;?></td>
+            <td id="border-grey"><?php echo $mp -> onName;?></td>
+            <td id="border-grey"><?php echo $mp -> rN;?></td>
+            <td id="border-grey"><?php echo $mp -> rC;?></td>
+            <td id="border-grey"><?php echo $mp -> cG;?></td>
+            <td id="border-grey"><?php echo $mp -> aiF;?></td>
+            <td id="border-grey"><?php echo $mp -> eA;?></td>
+            <td id="border-grey"><?php echo $mp -> iC;?></td>
           </tr>
-<?php }?>
+          
+        <?php } ?>
         </tbody>
       </table>
       
