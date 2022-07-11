@@ -226,11 +226,11 @@ switch ($_SESSION["userTypeId"]) {
                 $project -> jRevisionA2Db();
                 $main -> jFooter();
                 break;      
-            case 'revisionAnalitica1Db':
-                $project -> jRevisionAnalitica1Db();
-                $main -> jFooter();
-                break;          
-            case 'matrizDb':
+        //    case 'revisionAnalitica1Db':
+        //        $project -> jRevisionAnalitica1Db();
+        //        $main -> jFooter();
+        //        break;          
+        //    case 'matrizDb':
                 $project -> jMatrizDb();
                 $main -> jFooter();
                 break;
