@@ -110,43 +110,99 @@ $contadorr++;
             <td id="border-grey"><?php echo $mp -> eA;?></td>
             <td id="border-grey"><?php echo $mp -> iC;?></td>
           </tr>
-          
+
         <?php } ?>
         </tbody>
       </table>
       
-          
-      
-      
-      
-      <table class="white" id="planning">
-                                <thead>
-                                    <tr class="grey lighten-3 blue-grey-text text-darken-1">
-                                        <td id="border-white"  width="15%">Rubro </td> 
-                                        <td id="border-white"  width="20%">Tipo</td>
-                                        <td id="border-white"  width="10%"><?php echo $dP2;  ?></td>
-                                        <td id="border-white"  width="10%"><?php echo $dP3;  ?></td>
-                                        <td id="border-white"  width="10%">Var en Bs </td>
-                                        <td id="border-white"  width="10%">Var en %  </td>
-                                        
-                                        <td id="border-white"  width="15%">Observaciones   </td>
-                                         <td id="border-white" width="10%">Ejecuci&oacute;n</td>
-                                    </tr>
-                                </thead>
+        <div class="m-t-20"></div>
+
+
+<?php 
+
+
+if(1 == 1) {?>
+<div class="row ">
+    <div class="col s12 l6">
+        <table class="white" id="planning">
+                                
                                 <tbody>
+                                    <tr>
+                                    <td  class="grey lighten-3 blue-grey-text text-darken-1" >Se Revisi&oacute;n de Controles por Ciclos Transaccionales:   
+                                        
+                                        <label>
+                                                <input type="radio" name="completado" value="3" required/>
+                                                <span class="blue-grey-text text-darken-2"><span class="red-text">NO</span></span>
+                                            </label>
+                                        
+                                       
+                                            <label>
+                                                <input type="radio" name="completado" value="4"/>
+                                                <span class="blue-grey-text text-darken-2"><span class="blue-text">SI</span></span>
+                                            </label>        
+                                    </td>     
+                                    </tr>
+        
+                                </tbody>
+        </table>                                                       
+    </div>
     
+</div>
+<div class="row ">
+                                                    <div class="col s12 m-t-10">
+                                                        <label>
+                                                            <input type="checkbox" class="validate filled-in" required="" />
+                                                            <span>Estoy de acuerdo con la informaci&oacute;n suministrada!</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+<div class="row">
+                                                    <div class="col s12 m-t-10">
+                                                        <button type="submit" class="btn blue waves-effect">
+                                                            <i class="material-icons">save</i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+<?php }?>
 
-
-        <tbody>
+<div class="m-t-20"></div>   
+<!-- table -->
+<table class="white" id="planning">
+    <thead>
+        <tr class="grey lighten-3 blue-grey-text text-darken-1">
+            <td id="border-white"  width="15%">Rubro</td>
+            <td id="border-white"  width="20%">Tipo</td>
+            <td id="border-white" class="right-align"  width="10%">Monto 1</td>
+            <td id="border-white" class="right-align" width="10%">Monto 2</td>
+            <td id="border-white" class="right-align" width="10%">Var en Bs </td>
+            <td id="border-white" class="right-align" width="10%">Var en %  </td>
+            <td id="border-white" class="right-align" width="15%">Observaciones  </td>
+            <td id="border-white" class="right-align" width="10%">Ejecuci&oacute;n</td>
+        </tr>
+    </thead>
+                        
+    <tbody>
 
         <?php
-            $_raa = mysqli_query($master, "
+      
+        $_ra = mysqli_query($connection, "
             SELECT * FROM ractivo
-            WHERE projectId = 1
-            ORDER BY rubroId
-        ");
+            WHERE projectId = '" . $c . "'  and tipoId = 1
+        ");    
 
-            while ($ra = $_raa -> fetch_object()) {
+            while ($ra = $_ra -> fetch_object()) {
+
+             $_service = mysqli_query($master, "
+                SELECT * FROM rubro
+                WHERE rubroId = '". $ra -> rubroId ."'
+            ");
+            
+            //esta es la llave y debe tener la variable donde hago la conexion. si la conexion es $_g la llave es $g = $_g -> fetch_object();
+            $service = $_service -> fetch_object();
+            
+            //esta variable me almacena el valor de serviceName y lo uso con la llave. $serviceName = $g -> serviceName ;
+            $name = $service -> rubroName ;
+                
             
             if($ra -> tipoId == 1){
                     $name2 ="Activo";
@@ -159,88 +215,239 @@ $contadorr++;
                     $name2 ="Patrimonio";
                 } 
             
-            if($ra -> rubroId == 1){
-                $name ="Efectivo";
-            } 
-            if($ra -> rubroId == 2){
-                $name ="Cuentas por Cobrar";
-            } 
-            if($ra -> rubroId == 3){
-                $name ="Compaas Relacionadas
-                ";
-            } 
-            if($ra -> rubroId == 4){
-                $name ="Inventarios";
-            } 
-            if($ra -> rubroId == 5){
-                $name ="Propiedades, Plantas y Equipos
-                ";
-            } 
-            if($ra -> rubroId == 6){
-                $name ="Gastos Pagados por Anticipado
-                ";
-            } 
-            if($ra -> rubroId == 7){
-                $name ="	
-                Inversiones";
-            } 
-            if($ra -> rubroId == 8){
-                $name ="Cuentas por Pagar";
-            } 
-            if($ra -> rubroId == 9){
-                $name ="Obligaciones Bancarias";
-            } 
-            if($ra -> rubroId == 10){
-                $name ="N&oacute;mina";
-            } 
-            if($ra -> rubroId == 11){
-                $name ="Gastos Acumulados";
-            } 
-            if($ra -> rubroId == 12){
-                $name ="Impuestos";
-            } 
-            if($ra -> rubroId == 13){
-                $name ="Patrimonio";
-            } 
-            if($ra -> rubroId == 14){
-                $name ="Ganancias y Perdidas";
-            } 
-            if($ra -> rubroId == 15){
-                $name ="Otros Procedimientos";
-            } 
-            if($ra -> rubroId == 16){
-                $name ="General";
-            } 
 
 
                 $m1 = $ra -> monto1;
                 $m2 = $ra -> monto2; 
                 $m3 = $m1 - $m2;?>  
-          <tr>
+        <tr>
             <td id="border-grey"><?php echo $name2; ?></td>
             <td id="border-grey"><?php echo $name ; ?></td>
-            <td id="border-grey"><?php echo $m1 ?></td>
-            <td id="border-grey"><?php echo $m2; ?></td>
-            <td id="border-grey"><?php echo $m3 ?>  </td>
-            <td id="border-grey"></td>
-            <td id="border-grey"><?php echo $ra -> observacion; ?></td>
-            
-            <td id="border-grey" class="center">
-                <?php 
-                if ( $ra -> edit == 1  ){?>  
-                <a href="../c/project.php?m=revision&p=p&c=<?php echo $c; ?>&i=<?php echo $i; ?>&f=2&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
-                 <i class="material-icons blue-text">edit</i> 
-                  <?php }
-                  else { ?>
-                  <a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><?php echo number_format($m1); ?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($m2); ?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
+            <td id="border-grey" class="right-align"> </td>
+            <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
-                  </a>         
-                  <?php }?>
+                  </a>    
+            </td>
+            
+        </tr>
+        
+        
+        
+        
+        
+        <?php 
+        if($ra -> tipoId == 1){$aar1 = $aar1 + $ra -> monto1; $abr1 = $abr1 + $ra -> monto2;}
+        
+        
+        } ?>
+        <tr>
+            <td id="border-grey" colspan="2">Total Activo</td>
+            
+            <td id="border-grey" class="right-align"><?php echo  number_format($aar1);?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($abr1); ?></td>
+            <td id="border-grey" >  </td>
+            <td id="border-grey"></td>
+            <td id="border-grey"></td>
+            <td id="border-grey" class="center"> 
             </td>   
-          </tr>
-          <?php
-            } ?>
-        </tbody>
-      </table>         
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- end table -->
+
+<!-- tabla pasivo  -->
+
+
+<table class="white" id="planning">
+    <thead>
+        <tr class="grey lighten-3 blue-grey-text text-darken-1">
+            <td id="border-white"  width="15%">Rubro</td>
+            <td id="border-white"  width="20%">Tipo</td>
+            <td id="border-white" class="right-align"  width="10%">Monto 1</td>
+            <td id="border-white" class="right-align" width="10%">Monto 2</td>
+            <td id="border-white" class="right-align" width="10%">Var en Bs </td>
+            <td id="border-white" class="right-align" width="10%">Var en %  </td>
+            <td id="border-white" class="right-align" width="15%">Observaciones  </td>
+            <td id="border-white" class="right-align" width="10%">Ejecuci&oacute;n</td>
+        </tr>
+    </thead>
+                        
+    <tbody>
+
+        <?php
+      
+        $_ra = mysqli_query($connection, "
+            SELECT * FROM ractivo
+            WHERE projectId = '" . $c . "' and tipoId = 2
+        ");    
+
+            while ($ra = $_ra -> fetch_object()) {
+
+             $_service = mysqli_query($master, "
+                SELECT * FROM rubro
+                WHERE rubroId = '". $ra -> rubroId ."'
+            ");
+            
+            //esta es la llave y debe tener la variable donde hago la conexion. si la conexion es $_g la llave es $g = $_g -> fetch_object();
+            $service = $_service -> fetch_object();
+            
+            //esta variable me almacena el valor de serviceName y lo uso con la llave. $serviceName = $g -> serviceName ;
+            $name = $service -> rubroName ;
+                
+            
+            if($ra -> tipoId == 1){
+                    $name2 ="Activo";
+                } 
+            if($ra -> tipoId == 2){
+                    $name2 ="pasivo";
+                } 
+            
+            if($ra -> tipoId == 3){
+                    $name2 ="Patrimonio";
+                } 
+            
+
+
+                $m1 = $ra -> monto1;
+                $m2 = $ra -> monto2; 
+                $m3 = $m1 - $m2;?>  
+        <tr>
+            <td id="border-grey"><?php echo $name2; ?></td>
+            <td id="border-grey"><?php echo $name ; ?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($m1); ?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($m2); ?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
+            <td id="border-grey" class="right-align"> </td>
+            <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+                 <i class="material-icons blue-text">edit</i>
+                  </a>    
+            </td>
+        </tr>
+        
+        
+        
+        
+        
+        <?php 
+        if($ra -> tipoId == 2){$aar2 = $aar2 + $ra -> monto1; $abr2 = $abr2 + $ra -> monto2;}
+        
+        
+        } ?>
+        <tr>
+            <td id="border-grey" colspan="2">Total Pasivo</td>
+            
+            <td id="border-grey" class="right-align"><?php echo  number_format($aar2);?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($abr2); ?></td>
+            <td id="border-grey" >  </td>
+            <td id="border-grey"></td>
+            <td id="border-grey"></td>
+            <td id="border-grey" class="center"> 
+            </td>   
+        </tr>
+    </tbody>
+</table>
+
+<!-- end tabla pasivo  -->
+
+<!-- tabla patrimonio -->
+<table class="white" id="planning">
+    <thead>
+        <tr class="grey lighten-3 blue-grey-text text-darken-1">
+            <td id="border-white"  width="15%">Rubro</td>
+            <td id="border-white"  width="20%">Tipo</td>
+            <td id="border-white" class="right-align"  width="10%">Monto 1</td>
+            <td id="border-white" class="right-align" width="10%">Monto 2</td>
+            <td id="border-white" class="right-align" width="10%">Var en Bs </td>
+            <td id="border-white" class="right-align" width="10%">Var en %  </td>
+            <td id="border-white" class="right-align" width="15%">Observaciones  </td>
+            <td id="border-white" class="right-align" width="10%">Ejecuci&oacute;n</td>
+        </tr>
+    </thead>
+                        
+    <tbody>
+
+        <?php
+      
+        $_ra = mysqli_query($connection, "
+            SELECT * FROM ractivo
+            WHERE projectId = '" . $c . "'  and tipoId = 3
+        ");    
+
+            while ($ra = $_ra -> fetch_object()) {
+
+             $_service = mysqli_query($master, "
+                SELECT * FROM rubro
+                WHERE rubroId = '". $ra -> rubroId ."'
+            ");
+            
+            //esta es la llave y debe tener la variable donde hago la conexion. si la conexion es $_g la llave es $g = $_g -> fetch_object();
+            $service = $_service -> fetch_object();
+            
+            //esta variable me almacena el valor de serviceName y lo uso con la llave. $serviceName = $g -> serviceName ;
+            $name = $service -> rubroName ;
+                
+            
+            if($ra -> tipoId == 1){
+                    $name2 ="Activo";
+                } 
+            if($ra -> tipoId == 2){
+                    $name2 ="pasivo";
+                } 
+            
+            if($ra -> tipoId == 3){
+                    $name2 ="Patrimonio";
+                } 
+            
+
+                $m1 = $ra -> monto1;
+                $m2 = $ra -> monto2; 
+                $m3 = $m1 - $m2;?>  
+        <tr>
+            <td id="border-grey"><?php echo $name2; ?></td>
+            <td id="border-grey"><?php echo $name ; ?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($m1); ?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($m2); ?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
+            <td id="border-grey" class="right-align"> </td>
+            <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+                 <i class="material-icons blue-text">edit</i>
+                  </a>    
+            </td>
+        </tr>
+        
+        
+        
+        
+        
+        <?php 
+        if($ra -> tipoId == 3){$aar3 = $aar3 + $ra -> monto1; $abr3 = $abr3 + $ra -> monto2;}
+        
+        
+        } ?>
+        <tr>
+            <td id="border-grey" colspan="2">Total PaTrimonio</td>
+            
+            <td id="border-grey" class="right-align"><?php echo  number_format($aar3);?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($abr3); ?></td>
+            <td id="border-grey" >  </td>
+            <td id="border-grey"></td>
+            <td id="border-grey"></td>
+            <td id="border-grey" class="center"> 
+            </td>   
+        </tr>
+    </tbody>
+</table> 
+<!-- end tabla  patrimonio -->
+
+
+
     </div>
 </li>
