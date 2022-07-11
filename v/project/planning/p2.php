@@ -122,49 +122,12 @@ $contadorr++;
 
 
 if(1 == 1) {?>
-<form id="form_validation" action="../c/project.php?m=rctDb&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo $md;?>&a=1" method="post">      
-<div class="row ">
-    <div class="col s12 l6">
-        <table class="white" id="planning">
-                                
-                                <tbody>
-                                    <tr>
-                                    <td  class="grey lighten-3 blue-grey-text text-darken-1" >Se Revisi&oacute;n de Controles por Ciclos Transaccionales:   
-                                        
-                                        <label>
-                                                <input type="radio" name="completado" value="3" required/>
-                                                <span class="blue-grey-text text-darken-2"><span class="red-text">NO</span></span>
-                                            </label>
-                                        
-                                       
-                                            <label>
-                                                <input type="radio" name="completado" value="4"/>
-                                                <span class="blue-grey-text text-darken-2"><span class="blue-text">SI</span></span>
-                                            </label>        
-                                    </td>     
-                                    </tr>
-        
-                                </tbody>
-        </table>                                                       
-    </div>
-    
+ <div class="row">
+    <div class="col s3 m-b-10">
+        <a class="waves-effect waves-light btn blue-grey modal-trigger" href="#mzri">Se Realizara la Revisi&oacute;n de Controles por Ciclos Transaccionales?</a>
+    </div>                                                                                        
 </div>
-<div class="row ">
-                                                    <div class="col s12 m-t-10">
-                                                        <label>
-                                                            <input type="checkbox" class="validate filled-in" required="" />
-                                                            <span>Estoy de acuerdo con la informaci&oacute;n suministrada!</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-<div class="row">
-                                                    <div class="col s12 m-t-10">
-                                                        <button type="submit" class="btn blue waves-effect">
-                                                            <i class="material-icons">save</i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-</form>                                                
+
 <?php }?>
 
 <div class="m-t-20"></div>   
