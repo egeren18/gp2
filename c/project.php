@@ -310,7 +310,12 @@ switch ($_SESSION["userTypeId"]) {
             case 'msDb':
                 $project -> aMsDb();
                 $main -> jFooter();
-                break;     
+                break;
+            
+            case 'rctDb':
+                    $project -> aRctDb();
+                    $main -> jFooter();
+                    break;         
                 
                 
             default:

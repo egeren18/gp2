@@ -122,6 +122,7 @@ $contadorr++;
 
 
 if(1 == 1) {?>
+<form id="form_validation" action="../c/project.php?m=rctDb&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo $md;?>&a=1" method="post">      
 <div class="row ">
     <div class="col s12 l6">
         <table class="white" id="planning">
@@ -163,6 +164,7 @@ if(1 == 1) {?>
                                                         </button>
                                                     </div>
                                                 </div>
+</form>                                                
 <?php }?>
 
 <div class="m-t-20"></div>   

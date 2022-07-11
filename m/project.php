@@ -211,6 +211,10 @@ class Project {
     public static function aMsDb() {
         require_once '../f/project/aMsDb.php';
     }
+
+    public static function aRctDb() {
+        require_once '../f/project/aRctDb.php';
+    }
     
 }
 
