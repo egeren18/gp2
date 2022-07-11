@@ -56,75 +56,22 @@ $contadorr++;
         </table>
     </div>
     <div class="collapsible-body">
-    
-    
-    
-    <form id="form_validation" action="../c/project.php?m=matrizDb&p=s&c=<?php echo $c; ?>&i=<?php echo $i; ?>" method="post">
-      <div class="row">
-          
-                        <div class="col s12 m3">
-                            <div class="input-field">
-                                <small>Origen del riesgo</small>
-                              <input style="text-align: right ;" type="text" name="origenId" class="form-control" required="">
-                            </div>
-                        </div>
-          
-                        <div class="col s12 m3">
-                            <div class="input-field">
-                                <small>Objetivos del negocio</small>
-                              <input style="text-align: right ;" type="text" name="objetivosN" class="form-control" required="">
-                            </div>
-                        </div>
-                        <div class="col s12 m3">
-                            <div class="input-field">
-                                <small>Riesgo del negocio</small>
-                                <input style="text-align: right ;" type="number" name="riesgoN" class="form-control" required="">
-                            </div>
-                        </div>
-                        <div class="col s12 m3">
-                            <div class="input-field">
-                                <small>Riesgo clave</small>
-                                <input style="text-align: right ;" type="number" name="riesgoC" class="form-control" required="">
-                            </div>
-                        </div>
-       </div>                 
-                        
-                        
-                   <div class="row">
-                        <div class="col s12 m3">
-                            <div class="input-field">
-                                <small>Respuesta controles de la gerencia </small>
-                                <input style="text-align: right ;" type="number" name="controlG" class="form-control" required="">
-                            </div>
-                        </div>
-                         <div class="col s12 m3">
-                            <div class="input-field">
-                                <small>Area y asercion de la informacion financiera </small>
-                                <input style="text-align: right ;" type="number" name="informacion" class="form-control" required="">
-                            </div>
-                        </div>
-                        <div class="col s12 m3">
-                            <div class="input-field">
-                                <small>Enfoque de aduditor&iacute;a  </small>
-                                <input style="text-align: right ;" type="number" name="enfoqueA" class="form-control" required="">
-                            </div>
-                        </div>
-                        <div class="col s12 m2">
-                            <div class="input-field">
-                                <small>Emision de informe al cliente</small>
-                                <input style="text-align: right ;" type="text" name="emisionI" class="form-control" required="">
-                            </div>
-                        </div>
-                        
-                        <div class="col s1 m-t-30">
-                            <button type="submit" class="btn blue waves-effect tooltipped" data-position="top" data-tooltip="Guardar">
-                                <i class="material-icons">save</i>
-                            </button>
-                        </div>
-                        
-                    </div>
-    
-     </form>
+<?php 
+                $_mp = mysqli_query($pquest, "
+                    SELECT * FROM repuesta$vv
+                    WHERE amId = '" . $amId . "'
+                    ");
+                $mp = $_mp -> fetch_object();
+            if($name = $mp -> statusId < 2){?>
+            
+            <div class="row">
+                <div class="col s3 m-b-10">
+                    <a class="waves-effect waves-light btn blue-grey modal-trigger" href="#riesgo">Riesgo</a>
+                </div>
+                                                                                        
+            </div>                                                    
+<?php }?>
+
     <table class="white" id="planning">
                                 <thead>
                                     <tr class="grey lighten-3 blue-grey-text text-darken-1">
@@ -146,30 +93,27 @@ $contadorr++;
 
 
         <tbody>
-    <?php
-
-    $_ma = mysqli_query($connection, "
-        SELECT * FROM matriz
-        WHERE projectId = '" . $c . "'
-        ORDER BY matrizId
-        ");
-
-            while ($ma = $_ma -> fetch_object()) {?>              
+    <?php 
+                $_mp = mysqli_query($connection, "
+                    SELECT * FROM riesgo
+                    WHERE amId = '" . $amId . "'
+                    ");
+                $mp = $_mp -> fetch_object();
+            if($name = $mp -> statusId < 2){?>
           <tr>
-            <td id="border-grey"> <?php echo $ma -> origenId; ?></td>
-            <td id="border-grey"><?php echo $ma -> objetivosN; ?></td>
-            <td id="border-grey"><?php echo $ma -> riesgoN; ?> </td>
-            <td id="border-grey"><?php echo $ma -> riesgoC; ?></td>
-            <td id="border-grey"><?php echo $ma -> controlG; ?></td>
-            <td id="border-grey"><?php echo $ma -> informacionF; ?></td>
-            <td id="border-grey"><?php echo $ma -> enfoqueA; ?></td>
-            <td id="border-grey"><?php echo $ma -> emisionI; ?></td>
+            <td id="border-grey"> a</td>
+            <td id="border-grey">b</td>
+            <td id="border-grey">v</td>
+            <td id="border-grey">d</td>
+            <td id="border-grey">e</td>
+            <td id="border-grey">f</td>
+            <td id="border-grey">g</td>
+            <td id="border-grey">h</td>
             
         
             
           </tr>
-      <?php
-            } ?>
+<?php }?>
         </tbody>
       </table>
       
