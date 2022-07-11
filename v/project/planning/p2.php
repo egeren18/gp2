@@ -119,18 +119,75 @@ $contadorr++;
 
 
 <?php 
+$_mz = mysqli_query($connection, "
+SELECT * FROM mz
+WHERE projectId = '" . $c . "' and amId = '" . $amId . "'
+");
+$mz = $_mz -> fetch_object();
 
-
-if(1 == 1) {?>
+if($mz -> statusId == 1) {?>
  <div class="row">
     <div class="col s3 m-b-10">
         <a class="waves-effect waves-light btn blue-grey modal-trigger" href="#mzri">Se Realizara la Revisi&oacute;n de Controles por Ciclos Transaccionales?</a>
     </div>                                                                                        
 </div>
 
-<?php }?>
+<?php } ?>
 
 <div class="m-t-20"></div>   
+<!-- table -->
+
+<?php if($mz -> statusId > 1) {?>
+
+
+    <?php if($mz -> statusId == 4) {?>
+<!-- table -->
+<table class="white" id="planning">
+    <thead>
+        <tr class="grey lighten-3 blue-grey-text text-darken-1">
+            <td id="border-white"  width="15%">Rubro</td>
+            <td id="border-white"  width="20%">Tipo</td>
+            <td id="border-white" class="right-align"  width="10%">Monto 1</td>
+            <td id="border-white" class="right-align" width="10%">Monto 2</td>
+            <td id="border-white" class="right-align" width="10%">Var en Bs </td>
+            <td id="border-white" class="right-align" width="10%">Var en %  </td>
+            <td id="border-white" class="right-align" width="15%">Observaciones  </td>
+            <td id="border-white" class="right-align" width="10%">Ejecuci&oacute;n</td>
+        </tr>
+    </thead>
+                        
+    <tbody>
+
+     
+      
+
+
+        <tr>
+            <td id="border-grey">Revisi&oacute;n de Controles por Ciclos Transaccionales</td>
+            <td id="border-grey"></td>
+            <td id="border-grey" class="right-align"></td>
+            <td id="border-grey" class="right-align"></td>
+            <td id="border-grey" class="right-align"> </td>
+            <td id="border-grey" class="right-align"> </td>
+            <td id="border-grey" class="right-align"></td>
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+                 <i class="material-icons blue-text">edit</i>
+                  </a>    
+            </td>
+            
+        </tr>
+    
+    </tbody>
+</table>
+
+
+<!-- end table -->        
+        
+        
+    <?php }?>
+
+
+
 <!-- table -->
 <table class="white" id="planning">
     <thead>
@@ -412,7 +469,7 @@ if(1 == 1) {?>
 </table> 
 <!-- end tabla  patrimonio -->
 
-
+<?php }?>
 
     </div>
 </li>
