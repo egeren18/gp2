@@ -192,6 +192,26 @@ class Project {
         require_once '../f/project/aConsultar.php';
     }
     
+    public static function aMf() {
+        require_once '../f/project/aMf.php';
+    }
+    
+    public static function aMfDb() {
+        require_once '../f/project/aMfDb.php';
+    }
+    
+    public static function aAsigP() {
+        require_once '../f/project/aAsigP.php';
+    }
+    
+    public static function aAsigPDb() {
+        require_once '../f/project/aAsigPDb.php';
+    }
+ 
+    public static function aMsDb() {
+        require_once '../f/project/aMsDb.php';
+    }
+    
 }
 
 $project = new Project();
