@@ -436,7 +436,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey"><?php echo $name ; ?></td>
             <td id="border-grey" class="right-align"><?php echo number_format($m1); ?></td>
             <td id="border-grey" class="right-align"><?php echo number_format($m2); ?></td>
-            <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
+            <td id="border-grey" class="right-align"><?php echo number_format($m3); ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
             <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
