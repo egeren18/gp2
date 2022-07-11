@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Utilities -->
+    <meta charset="utf-8">
+    <title>SAGRA GP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" rel="stylesheet">
+    <!-- Materialize -->
+    <link type="text/css" href="../css/materialize.css" rel="stylesheet" media="screen,projection"/>
+    <!-- Datatables --
+    <link type="text/css" href="plugins/datatables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link type="text/css" href="plugins/datatables/Buttons-1.5.6/css/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link type="text/css" href="plugins/datatables/Responsive/2.2.2/css/responsive.dataTables.min.css" rel="stylesheet"/>
+-->
+    <!-- Datatables -->
+    <link type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link type="text/css" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet"/>
+     <!-- Custom -->
+    <link type="text/css" href="../css/datatables.css" rel="stylesheet"/>
+    <link type="text/css" href="../css/jansen.css" rel="stylesheet"/>
+     <!-- CkEditor -->
+    <script src="../plugins/ckeditor/ckeditor.js"></script>
+
+</head>
+
+
+
+    <footer>
+
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+        <!-- Materialize -->
+        <script type="text/javascript" src="../js/materialize.js"></script>
+        <!-- Datatables --
+        <script type="text/javascript" src="plugins/datatables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="plugins/datatables/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" src="plugins/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="plugins/datatables/JSZip-2.5.0/jszip.min.js"></script>
+        <script type="text/javascript" src="plugins/datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
+        <script type="text/javascript" src="plugins/datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+        <script type="text/javascript" src="plugins/datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="plugins/datatables/Buttons-1.5.6/js/buttons.print.min.js"></script>
+        <script type="text/javascript" src="plugins/datatables/Buttons-1.5.6/js/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="plugins/datatables/Buttons-1.5.6/js/buttons.flash.min.js"></script>
+-->
+        <!-- Datatables -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
+        <!-- Custom -->
+        <script type="text/javascript" src="../js/jansen.js"></script>
+        <script type="text/javascript" src="../js/datatables.js"></script>
+
+    </footer>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Utilities -->
+    <meta charset="utf-8">
+    <title>SAGRA GP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" rel="stylesheet">
+    <!-- Materialize -->
+    <link type="text/css" href="../css/materialize.css" rel="stylesheet" media="screen,projection"/>
+    <!-- Datatables -->
+    <link type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link type="text/css" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet"/>
+    <!-- Custom -->
+    <link type="text/css" href="../css/datatables.css" rel="stylesheet"/>
+    <link type="text/css" href="../css/jansen.css" rel="stylesheet"/>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <!-- Datatables -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
+     <!-- CkEditor -->
+    <script src="../plugins/ckeditor/ckeditor.js"></script>
+
+</head>
+    <footer>
+
+        <!-- Materialize -->
+        <script type="text/javascript" src="../js/materialize.js"></script>
+        <!-- Custom -->
+        <script type="text/javascript" src="../js/jansen.js"></script>
+        <script type="text/javascript" src="../js/datatables.js"></script>
+
+    </footer>
+
+</body>
+</html>

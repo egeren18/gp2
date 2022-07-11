@@ -1,0 +1,6 @@
+[08-Dec-2021 13:05:40 America/Caracas] PHP Warning:  mysqli::__construct(): (HY000/1044): Access denied for user 'sagracom'@'localhost' to database 'sagracom_' in /home/sagracom/public_html/test/alberto/gp/connection2.php on line 10
+[08-Dec-2021 13:05:40 America/Caracas] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/sagracom/public_html/test/alberto/gp/plugins/pdf/doc/client.php on line 10
+[08-Dec-2021 13:05:40 America/Caracas] PHP Fatal error:  Uncaught Error: Call to a member function fetch_object() on bool in /home/sagracom/public_html/test/alberto/gp/plugins/pdf/doc/client.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/sagracom/public_html/test/alberto/gp/plugins/pdf/doc/client.php on line 10

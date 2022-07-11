@@ -1,0 +1,64 @@
+<?php
+
+// connection
+
+include '../connection.php';
+include '../connection2.php';
+
+// access
+
+include '../allow.php';
+
+// select
+
+$country = mysqli_query($master, "
+    SELECT * FROM country
+    WHERE countryStatus = 1
+    ORDER BY countryName
+");
+
+// select
+
+$service = mysqli_query($master, "
+    SELECT * FROM service
+    WHERE serviceStatus = 1
+    ORDER BY serviceName
+");
+
+// select
+
+$ntrabajador = mysqli_query($master, "
+    SELECT * FROM ntrabajador
+    WHERE ntrabajadorStatus = 1
+    ORDER BY ntrabajadorName
+");
+
+
+// select
+
+$ningreso = mysqli_query($master, "
+    SELECT * FROM ningreso
+    WHERE ningresoStatus = 1
+    ORDER BY ningresoName
+");
+
+
+// select
+
+$riskPartner = mysqli_query($master, "
+    SELECT * FROM user
+    WHERE subscriberId = '" . $_SESSION["subscriberId"] . "'
+    AND subscriberId > 1
+");
+
+// select
+
+$economicArea = mysqli_query($master, "
+    SELECT * FROM economicarea
+    WHERE economicAreaStatus = 1
+    ORDER BY economicAreaName
+");
+
+// view
+
+require_once '../v/client/jCreate.php';
