@@ -284,8 +284,33 @@ switch ($_SESSION["userTypeId"]) {
             case 'consultar':
                 $project -> aConsultar();
                 $main -> jFooter();
+                break;
+                
+                
+            case 'mf':
+                $project -> aMf();
+                $main -> jFooter();
+                break;
+            
+            case 'mfDb':
+                $project -> aMfDb();
+                $main -> jFooter();
+                break;
+                
+            case 'asigP':
+                $project -> aAsigP();
+                $main -> jFooter();
                 break;    
                 
+            case 'asigPDb':
+                $project -> aAsigPDb();
+                $main -> jFooter();
+                break; 
+                
+            case 'msDb':
+                $project -> aMsDb();
+                $main -> jFooter();
+                break;     
                 
                 
             default:
