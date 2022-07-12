@@ -45,14 +45,16 @@ if($project -> userComplete == $userId and $a != 1 ){
     UPDATE permisos$vv
     SET
     userComplete = ?,
-    role = ?
+    role = ?,
+    tiempo = ?,
+    tiempoId = ?
     WHERE
     amId = '" . $value . "' AND userId = '" . $userId . "'
 ");	
 
 $update -> bind_param (
-    "ii",
-    $dd, $a
+    "iisi",
+    $dd, $a, $_POST['tiempo'.$value], $_POST['tiempoId'.$value]
 );
 
 $update -> execute();
@@ -63,14 +65,16 @@ $update -> execute();
     UPDATE permisos$vv
     SET
     userComplete = ?,
-    role = ?
+    role = ?,
+    tiempo = ?,
+    tiempoId = ?
     WHERE
     amId = '" . $value . "' AND userId = '" . $userId . "'
 ");	
 
 $update -> bind_param (
-    "ii",
-    $userId, $a
+    "iisi",
+    $userId, $a, $_POST['tiempo'.$value], $_POST['tiempoId'.$value]
 );
 
 $update -> execute();
@@ -81,14 +85,16 @@ $update -> execute();
       $update = $pquest -> prepare ("
       UPDATE permisos$vv
       SET
-      role = ?
+      role = ?,
+      tiempo = ?,
+      tiempoId = ?
       WHERE
       amId = '" . $value . "' AND userId = '" . $userId . "'
   ");	
   
   $update -> bind_param (
-      "i",
-     $a
+      "isi",
+     $a, $_POST['tiempo'.$value], $_POST['tiempoId'.$value]
   );
   
   $update -> execute();
