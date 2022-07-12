@@ -300,7 +300,7 @@ $modelo = $connection -> prepare ("
     INSERT INTO mz
     (projectId, amId)
     VALUES
-    (?,?,?,?,?,?,?,?)
+    (?,?)
 ");
 
 $modelo -> bind_param ("ii", $c , $id2);
