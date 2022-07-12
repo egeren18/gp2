@@ -11,29 +11,50 @@ include '../allow.php';
 $module = 'project';
 $action = 'revison';
 
+
+// var
 $c = $_GET["c"];
-$i = $_GET["i"];
-$f = $_GET["f"];
-$r = $_GET["r"];
+$serviceId = $_GET["serviceId"];
+$md = $_GET["md"];
+$amId = $_GET["amId"];
+$rubroId = $_GET["rubroId"];
+$v =$serviceId.'_'.$md;
+$vv =$c.'_'.$serviceId.'_'.$md;
+
 
 // select
 
-$_ractivo = mysqli_query($master, "
-    SELECT * FROM ractivo
-    WHERE projectId = '" . $c . "'
-");
+$_project = mysqli_query($connection, "SELECT * FROM project WHERE projectId = '" . $c . "'");
+$project = $_project -> fetch_object();
 
-$ractivo = $_ractivo -> fetch_object();
+//select
 
-$_module = mysqli_query($connection, "
-    SELECT * FROM test
-    WHERE projectId = '" . $c . "'
-    AND rubroId = '" . $r . "' AND frecuencia = 1
-    ORDER BY srubroId
-");
+$_client = mysqli_query($master, "SELECT * FROM client WHERE clientId = '" . $project -> clientId . "'");
+$client = $_client -> fetch_object();
 
 
+// select
 
+$_leader = mysqli_query($connection, "SELECT * FROM projectteam WHERE projectId = '" . $project -> projectId . "' AND  designatedId = 7");
+
+// select
+
+$_consultant = mysqli_query($connection, "SELECT * FROM projectteam WHERE projectId = '" . $project -> projectId . "' AND  designatedId = 6");
+
+$riskPartner = mysqli_query($master, "SELECT * FROM user WHERE userStatus = 2");
+$r_riskPartner = $riskPartner -> fetch_object();
+
+// select
+
+$_service = mysqli_query($master, "SELECT * FROM service WHERE serviceStatus = 1");
+$service = $_service -> fetch_object();
+
+// select
+
+$_nature = mysqli_query($master, "SELECT * FROM service INNER JOIN nature ON service.natureId = nature.natureId WHERE service.serviceId = '" . $service -> serviceId . "'");
+$nature = $_nature -> fetch_object();
+
+$_mmodelo = mysqli_query($pquest, "SELECT * FROM permisos$vv WHERE amId = '" . $amId . "'");
 
 
 // view

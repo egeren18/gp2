@@ -37,6 +37,9 @@
                                 </a>
                             </div>
                         </div>
+
+
+                        
                         <div class="card m-t-10 m-l-5 m-r-5">
                             <div class="card p-b-15 p-l-20 p-r-20">
                                 <div class="row">
@@ -46,7 +49,7 @@
                                             <?php
                                             $_namer = mysqli_query($master, "
                                                 SELECT * FROM rubro
-                                                WHERE rubroId = '" . $r . "'
+                                                WHERE rubroId = 1
                                             "); 
                                             $namer = $_namer -> fetch_object();
                                             
@@ -61,143 +64,26 @@
                     <div class="col s12">       
                         <table class="m-t-20" style="width:100%;">
                             <tbody>
+                       <?    
+                       
+                       
+                       $sSACQ = "localhost";
+$uSACQ = "sagracom_crear";
+$pSACQ = "Sagra2507.";
+$dSACQ = "sagracom_2project";
 
-
-                           
-                                    <?php
-                                    while ($module = $_module -> fetch_object()) {
-
-                                        $_access = mysqli_query($connection, "
-                                            SELECT * FROM test
-                                            WHERE srubroId = '" . $module -> srubroId  . "'
-                                        ");
-                                        
-                                        $access = $_access -> fetch_object();
-                                        
-                                        $_name = mysqli_query($master, "
-                                            SELECT * FROM srubro
-                                            WHERE srubroId = '" . $module -> srubroId  . "'
-                                        ");
+$pquest = new mysqli($sSACQ, $uSACQ, $pSACQ, $dSACQ);
+                       $_ccc = mysqli_query($pquest, "
+                                                SELECT * FROM permisos32_1_4
+                                                WHERE 
+                                            ");   
+                                        ?>
+                                           
+                                                            <?php
+                                                            $ccontador= 0;
+                                                            while ($cp = $_ccc -> fetch_object()) {?>
+                                     <p>1</p>
                                     
-                                        $name = $_name -> fetch_object();
-
-                                        
-                                    ?>
-
-                        <tr>
-    
-                            <td class=" blue-grey lighten-2 white-text td-block" style="width:80%">
-                                <?php echo $name -> sRubroName;?>
-                                
-                             </td>
-                             
-                             <td  class="m-l-10">
-                                   <a class=" tooltipped" href="../c/project.php?m=revision2&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $module -> rubroId; ?>" data-tooltip="Asignar tarea por Frecuencia">
-                                   <i class="material-icons blue-grey-text">edit</i>
-                                                        
-                                    </a>
-                            </td> 
-                            <td  class="">
-                                   <a class=" tooltipped"  data-tooltip="Asercion  1 C">
-                                       <input value="<?php echo $module -> srubroId; ?>" type="hidden" name="moduleId1[]" />
-                                                        <div>
-                                                            <label class="m-l-20">
-                                                            <input <?php echo $checked = $access -> a1 == 1 ? 'checked' : ''; ?> 
-                                                                    value="<?php echo $module -> srubroId; ?>" type="checkbox" name="jRead1[<?php echo $module -> srubroId; ?>]"/>
-                                                         
-                                                                 <span class="blue-grey-text text-darken-2"></span>
-                                                            </label>
-                                                        </div> 
-                                                        
-                                    </a>
-                            </td> 
-                            <td  class=""> 
-                                   <a class=" tooltipped"  data-tooltip="Asercion 2 A">
-                                       <input value="<?php echo $module -> srubroId; ?>" type="hidden" name="moduleId2[]" />
-                                                        <div>
-                                                            <label class="m-l-20">
-                                                            <input <?php echo $checked = $access -> a2 == 1 ? 'checked' : ''; ?> 
-                                                                    value="<?php echo $module -> srubroId; ?>" type="checkbox" name="jRead2[<?php echo $module -> srubroId; ?>]"/>
-                                                         
-                                                                 <span class="blue-grey-text text-darken-2"></span>
-                                                            </label>
-                                                        </div> 
-                                                        
-                                    </a>
-                            </td> 
-                            <td  class="">
-                                   <a class=" tooltipped"  data-tooltip="Asercion 3 E/O">
-                                       <input value="<?php echo $module -> srubroId; ?>" type="hidden" name="moduleId3[]" />
-                                                        <div>
-                                                            <label class="m-l-20">
-                                                            <input <?php echo $checked = $access -> a3 == 1 ? 'checked' : ''; ?> 
-                                                                    value="<?php echo $module -> srubroId; ?>" type="checkbox" name="jRead3[<?php echo $module -> srubroId; ?>]"/>
-                                                         
-                                                                 <span class="blue-grey-text text-darken-2"></span>
-                                                            </label>
-                                                        </div> 
-                                                        
-                                    </a>
-                            </td> 
-                            <td  class="">
-                                   <a class=" tooltipped"  data-tooltip="Asercion 4 CO" >
-                                       <input value="<?php echo $module -> srubroId; ?>" type="hidden" name="moduleId4[]" />
-                                                        <div>
-                                                            <label class="m-l-20">
-                                                            <input <?php echo $checked = $access -> a4 == 1 ? 'checked' : ''; ?> 
-                                                                    value="<?php echo $module -> srubroId; ?>" type="checkbox" name="jRead4[<?php echo $module -> srubroId; ?>]"/>
-                                                         
-                                                                 <span class="blue-grey-text text-darken-2"></span>
-                                                            </label>
-                                                        </div> 
-                                                        
-                                    </a>
-                            </td> 
-                            <td  class="">
-                                   <a class=" tooltipped"  data-tooltip="Asercion 5 RO">
-                                       <input value="<?php echo $module -> srubroId; ?>" type="hidden" name="moduleId5[]" />
-                                                        <div>
-                                                            <label class="m-l-20">
-                                                            <input <?php echo $checked = $access -> a5 == 1 ? 'checked' : ''; ?> 
-                                                                    value="<?php echo $module -> srubroId; ?>" type="checkbox" name="jRead5[<?php echo $module -> srubroId; ?>]"/>
-                                                         
-                                                                 <span class="blue-grey-text text-darken-2"></span>
-                                                            </label>
-                                                        </div> 
-                                                        
-                                    </a>
-                            </td> 
-                            <td  class="">
-                                   <a class=" tooltipped"  data-tooltip="Asercion 6 VA">
-                                       <input value="<?php echo $module -> srubroId; ?>" type="hidden" name="moduleId6[]" />
-                                                        <div>
-                                                            <label class="m-l-20">
-                                                            <input <?php echo $checked = $access -> a6 == 1 ? 'checked' : ''; ?> 
-                                                                    value="<?php echo $module -> srubroId; ?>" type="checkbox" name="jRead6[<?php echo $module -> srubroId; ?>]"/>
-                                                         
-                                                                 <span class="blue-grey-text text-darken-2"></span>
-                                                            </label>
-                                                        </div> 
-                                                        
-                                    </a>
-                            </td> 
-                            <td  class="">
-                                   <a class=" tooltipped"  data-tooltip="Asercion 7 PD">
-                                       <input value="<?php echo $module -> srubroId; ?>" type="hidden" name="moduleId7[]" />
-                                                        <div>
-                                                            <label class="m-l-20">
-                                                            <input <?php echo $checked = $access -> a7 == 1 ? 'checked' : ''; ?> 
-                                                                    value="<?php echo $module -> srubroId; ?>" type="checkbox" name="jRead7[<?php echo $module -> srubroId; ?>]"/>
-                                                         
-                                                                 <span class="blue-grey-text text-darken-2"></span>
-                                                            </label>
-                                                        </div> 
-                                                        
-                                    </a>
-                            </td> 
-                            
-                        </tr>
-                                    <script>if(!$("#clean<?php echo $module -> moduleId; ?>").is(':checked')){$(".case<?php echo $module -> moduleId; ?>").prop('disabled', true);}$('#clean<?php echo $module -> moduleId; ?>').click(function(){if (this.checked){$(".case<?php echo $module -> moduleId; ?>").prop('disabled', false);}else{$('.case<?php echo $module -> moduleId; ?>').prop('checked', false);$(".case<?php echo $module -> moduleId; ?>").prop('disabled', true);}});</script>
                                     <?php } ?> </table>
 
 
