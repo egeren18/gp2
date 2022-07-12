@@ -294,7 +294,7 @@ if ($modeloId == 2){
     );
 
     $insert -> execute();         
-$id2 = mysqli_insert_id($connection);     
+$ii = mysqli_insert_id($pquest);     
 // mandar a la tabla mz 
 $modelo = $connection -> prepare ("
     INSERT INTO mz
@@ -303,7 +303,7 @@ $modelo = $connection -> prepare ("
     (?,?)
 ");
 
-$modelo -> bind_param ("ii", $c , $id2);
+$modelo -> bind_param ("ii", $id , $ii);
 $modelo -> execute();  
     }
     
@@ -421,7 +421,9 @@ if ($modeloId != 2 and $modeloId != 11 and $modeloId != 12  and $etapaId == 3){
     userComplete int(11) DEFAULT '0',
     userId int(11) DEFAULT NULL,
     role int(11) DEFAULT NULL,
-    rubroId int(11) DEFAULT NULL
+    rubroId int(11) DEFAULT NULL,
+    tiempo text,
+    tiempoId int(11) DEFAULT '0'
     )";
    $pquest->query($sql);
 //permisos del usuario 1
@@ -626,7 +628,9 @@ $insert -> execute();
     projectReviewerDate varchar(30) DEFAULT NULL,
     statusId int(11) DEFAULT '0',
     obs text,
-    rubroId int(11) DEFAULT NULL
+    rubroId int(11) DEFAULT NULL,
+    tiempo text,
+    tiempoId int(11) DEFAULT '0'
     )";
    $pquest->query($sql);
 // permisos para ejecucion
@@ -682,7 +686,9 @@ $insert -> execute();
     userComplete int(11) DEFAULT '0',
     userId int(11) DEFAULT NULL,
     role int(11) DEFAULT NULL,
-    rubroId int(11) DEFAULT NULL
+    rubroId int(11) DEFAULT NULL,
+    tiempo text,
+    tiempoId int(11) DEFAULT '0'
     )";
    $pquest->query($sql);
 // sql Crea la tabla usando Lenguaje PHP
