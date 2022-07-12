@@ -43,6 +43,8 @@ $v=$id.'_'.$serviceId.'_'.$md;
 $vv=$serviceId.'_'.$md;
 // crear las tablas 
 
+
+
 //creaR TABLA EN LA BASE DE DATOS(sagracom_tipo_project_modelo)  REFERENTE ACTIVIDADES DE MODEOS DE proyectos. 
 //formato
  // sql Crea la tabla usando Lenguaje PHP
@@ -93,7 +95,8 @@ $vv=$serviceId.'_'.$md;
     status int(11) DEFAULT NULL,
     access int(11) DEFAULT '0',
     v varchar(200) DEFAULT NULL,
-    userComplete int(11) DEFAULT '0'
+    userComplete int(11) DEFAULT '0',
+    rubroId int(11) DEFAULT NULL
     )";
    $pquest->query($sql);  
 
@@ -149,7 +152,8 @@ $vv=$serviceId.'_'.$md;
     access int(11) DEFAULT '0',
     v varchar(200) DEFAULT NULL,
     frecuencia int(11) DEFAULT NULL,
-    userComplete int(11) DEFAULT '0'
+    userComplete int(11) DEFAULT '0',
+    rubroId int(11) DEFAULT NULL
     )";
    $pquest->query($sql);
    
@@ -199,6 +203,7 @@ $texto20 = $m1 -> texto20;
 
 $normaText = $m1 -> normaText;
 $date = $m1 -> date;
+$rubroId = $m1 -> rubroId;
 
 if ($modeloId == 11){
     $contador = 1;
@@ -209,19 +214,19 @@ if ($modeloId == 11){
         INSERT INTO project$v
         (mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
         texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
-        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date
+        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, rubroId
         )
         VALUES
         (?,?,?,?,?,?,?,?,?,?,
          ?,?,?,?,?,?,?,?,?,?,
-         ?,?,?,?,?,?,?,?,?,?,?)
+         ?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $insert -> bind_param (
-        "iiiiiiiiissssssssssssssssssssss",
+        "iiiiiiiiissssssssssssssssssssssi",
         $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
         $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
-        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d
+        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $rubroId
         
     );
 
@@ -241,19 +246,19 @@ if ($modeloId == 12){
         INSERT INTO project$v
         (mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
         texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
-        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date
+        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, rubroId
         )
         VALUES
         (?,?,?,?,?,?,?,?,?,?,
          ?,?,?,?,?,?,?,?,?,?,
-         ?,?,?,?,?,?,?,?,?,?,?)
+         ?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $insert -> bind_param (
-        "iiiiiiiiissssssssssssssssssssss",
+        "iiiiiiiiissssssssssssssssssssssi",
         $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
         $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
-        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d
+        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $rubroId
         
     );
 
@@ -272,25 +277,34 @@ if ($modeloId == 2){
         INSERT INTO project$v
         (mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
         texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
-        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date
+        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, rubroId
         )
         VALUES
         (?,?,?,?,?,?,?,?,?,?,
          ?,?,?,?,?,?,?,?,?,?,
-         ?,?,?,?,?,?,?,?,?,?,?)
+         ?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $insert -> bind_param (
-        "iiiiiiiiissssssssssssssssssssss",
+        "iiiiiiiiissssssssssssssssssssssi",
         $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
         $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
-        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d
+        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $rubroId
         
     );
 
     $insert -> execute();         
-        
-        
+$id2 = mysqli_insert_id($connection);     
+// mandar a la tabla mz 
+$modelo = $connection -> prepare ("
+    INSERT INTO mz
+    (projectId, amId)
+    VALUES
+    (?,?,?,?,?,?,?,?)
+");
+
+$modelo -> bind_param ("ii", $c , $id2);
+$modelo -> execute();  
     }
     
 }
@@ -301,19 +315,19 @@ if ($modeloId != 2 and $modeloId != 11 and $modeloId != 12  and $etapaId != 3){
         INSERT INTO project$v
         (mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
         texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
-        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date
+        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, rubroId
         )
         VALUES
         (?,?,?,?,?,?,?,?,?,?,
          ?,?,?,?,?,?,?,?,?,?,
-         ?,?,?,?,?,?,?,?,?,?,?)
+         ?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $insert -> bind_param (
-        "iiiiiiiiissssssssssssssssssssss",
+        "iiiiiiiiissssssssssssssssssssssi",
         $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
         $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
-        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d
+        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $rubroId
         
     );
 
@@ -331,19 +345,19 @@ if ($modeloId != 2 and $modeloId != 11 and $modeloId != 12  and $etapaId == 3){
         INSERT INTO ejecucion$v
         (mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
         texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
-        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, frecuencia
+        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, frecuencia, rubroId
         )
         VALUES
         (?,?,?,?,?,?,?,?,?,?,
          ?,?,?,?,?,?,?,?,?,?,
-         ?,?,?,?,?,?,?,?,?,?,?,?)
+         ?,?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $insert -> bind_param (
-        "iiiiiiiiissssssssssssssssssssssi",
+        "iiiiiiiiissssssssssssssssssssssii",
         $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
         $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
-        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $fr
+        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $fr, $rubroId
         
     );
 
@@ -406,7 +420,8 @@ if ($modeloId != 2 and $modeloId != 11 and $modeloId != 12  and $etapaId == 3){
     frecuencia int(11) DEFAULT NULL,
     userComplete int(11) DEFAULT '0',
     userId int(11) DEFAULT NULL,
-    role int(11) DEFAULT NULL
+    role int(11) DEFAULT NULL,
+    rubroId int(11) DEFAULT NULL
     )";
    $pquest->query($sql);
 //permisos del usuario 1
@@ -610,8 +625,212 @@ $insert -> execute();
     projectReviewerId int(11) DEFAULT '0',
     projectReviewerDate varchar(30) DEFAULT NULL,
     statusId int(11) DEFAULT '0',
-    obs text
+    obs text,
+    rubroId int(11) DEFAULT NULL
     )";
    $pquest->query($sql);
+// permisos para ejecucion
+ $sql = "CREATE TABLE pej$v (
+    aId INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    amId int(11) DEFAULT NULL,
+    mmodeloId int(11) DEFAULT NULL, 
+    serviceId int(11) DEFAULT NULL, 
+    etapaId int(11) DEFAULT NULL,
+    mcategoriaId int(11) DEFAULT NULL,
+    cacId int(11) DEFAULT NULL,
+    actividadId int(11) DEFAULT NULL,
+    mId int(11) DEFAULT NULL,
+    modeloId int(11) DEFAULT NULL,
+    npregunta int(11) DEFAULT NULL,
+    texto1 text, 
+    texto2 text, 
+    texto3 text, 
+    texto4 text, 
+    texto5 text, 
+    texto6 text, 
+    texto7 text, 
+    texto8 text, 
+    texto9 text, 
+    texto10 text, 
+    texto11 text, 
+    texto12 text, 
+    texto13 text, 
+    texto14 text, 
+    texto15 text, 
+    texto16 text, 
+    texto17 text, 
+    texto18 text, 
+    texto19 text, 
+    texto20 text, 
+    normaText varchar(100) DEFAULT NULL,
+    oc int(11) DEFAULT NULL,
+	ayudaText text, 
+    mci int(11) DEFAULT '0',
+    cg int(11) DEFAULT '0',
+    sc int(11) DEFAULT '0',
+    aa int(11) DEFAULT '0',
+    mciT text, 
+    cgT text,
+    scT text,
+    aaT text,
+    date varchar(100) DEFAULT NULL,
+    version int(11) DEFAULT '0',
+    status int(11) DEFAULT NULL,
+    access int(11) DEFAULT '0',
+    v varchar(200) DEFAULT NULL,
+    frecuencia int(11) DEFAULT NULL,
+    userComplete int(11) DEFAULT '0',
+    userId int(11) DEFAULT NULL,
+    role int(11) DEFAULT NULL,
+    rubroId int(11) DEFAULT NULL
+    )";
+   $pquest->query($sql);
+// sql Crea la tabla usando Lenguaje PHP
+
+//permisos del usuario 1
+// role = 0
+$role = 0;
+//  conexion 
+$_permisos = mysqli_query($pquest, "
+    SELECT * FROM ejecucion$v
+");
+
+//whilepara meter permisos   
+while($m1 = $_permisos -> fetch_object()){
+//variables con la info del llenado
+$amId = $m1 -> amId;
+$mmodeloId = $m1 -> mmodeloId;
+$serviceId = $m1 -> serviceId;
+$etapaId = $m1 -> etapaId;
+$mcategoriaId = $m1 -> mcategoriaId;
+$cacId = $m1 -> cacId;
+$actividadId = $m1 -> actividadId;
+$mId = $m1 -> mId;
+$modeloId = $m1 -> modeloId;
+$npregunta = $m1 -> npregunta;
+$texto1 = $m1 -> texto1;
+$texto2 = $m1 -> texto2;
+$texto3 = $m1 -> texto3;
+$texto4 = $m1 -> texto4;
+$texto5 = $m1 -> texto5;
+$texto6 = $m1 -> texto6;
+$texto7 = $m1 -> texto7;
+$texto8 = $m1 -> texto8;
+$texto9 = $m1 -> texto9;
+$texto10 = $m1 -> texto10;
+$texto11 = $m1 -> texto11;
+$texto12 = $m1 -> texto12;
+$texto13 = $m1 -> texto13;
+$texto14 = $m1 -> texto14;
+$texto15 = $m1 -> texto15;
+$texto16 = $m1 -> texto16;
+$texto17 = $m1 -> texto17;
+$texto18 = $m1 -> texto18;
+$texto19 = $m1 -> texto19;
+$texto20 = $m1 -> texto20;
+$normaText = $m1 -> normaText;
+$date = $m1 -> date;
+$frecuencia = $m1 -> frecuencia;
+$rubroId = $m1 -> rubroId;
+
+//insert para el llenado 
+$insert = $pquest -> prepare ("
+INSERT INTO pej$v
+(amId, mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
+texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
+texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date,
+userId, role, frecuencia, rubroId
+)
+VALUES
+(?,?,?,?,?,?,?,?,?,?,?,
+ ?,?,?,?,?,?,?,?,?,?,
+ ?,?,?,?,?,?,?,?,?,?,?,
+ ?,?,?,?)
+");
+
+$insert -> bind_param (
+"iiiiiiiiiissssssssssssssssssssssiiii",
+$amId, $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
+$texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
+$texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $userId, $role, $frecuencia, $rubroId
+);
+
+$insert -> execute();         
+
+}
+   
+
+//permisos del usuario 2 
+// role = 0
+$role = 0;
+//  conexion 
+$_permisos2 = mysqli_query($pquest, "
+    SELECT * FROM ejecucion$v
+");
+
+//whilepara meter permisos   
+while($m1 = $_permisos2 -> fetch_object()){
+//variables con la info del llenado
+$amId = $m1 -> amId;
+$mmodeloId = $m1 -> mmodeloId;
+$serviceId = $m1 -> serviceId;
+$etapaId = $m1 -> etapaId;
+$mcategoriaId = $m1 -> mcategoriaId;
+$cacId = $m1 -> cacId;
+$actividadId = $m1 -> actividadId;
+$mId = $m1 -> mId;
+$modeloId = $m1 -> modeloId;
+$npregunta = $m1 -> npregunta;
+$texto1 = $m1 -> texto1;
+$texto2 = $m1 -> texto2;
+$texto3 = $m1 -> texto3;
+$texto4 = $m1 -> texto4;
+$texto5 = $m1 -> texto5;
+$texto6 = $m1 -> texto6;
+$texto7 = $m1 -> texto7;
+$texto8 = $m1 -> texto8;
+$texto9 = $m1 -> texto9;
+$texto10 = $m1 -> texto10;
+$texto11 = $m1 -> texto11;
+$texto12 = $m1 -> texto12;
+$texto13 = $m1 -> texto13;
+$texto14 = $m1 -> texto14;
+$texto15 = $m1 -> texto15;
+$texto16 = $m1 -> texto16;
+$texto17 = $m1 -> texto17;
+$texto18 = $m1 -> texto18;
+$texto19 = $m1 -> texto19;
+$texto20 = $m1 -> texto20;
+$normaText = $m1 -> normaText;
+$date = $m1 -> date;
+//insert para el llenado 
+$insert = $pquest -> prepare ("
+INSERT INTO pej$v
+(amId,mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
+texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
+texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date,
+userId, role, frecuencia, rubroId
+)
+VALUES
+(?,?,?,?,?,?,?,?,?,?,?,
+ ?,?,?,?,?,?,?,?,?,?,
+ ?,?,?,?,?,?,?,?,?,?,?,
+ ?,?,?,?)
+");
+
+$insert -> bind_param (
+"iiiiiiiiiissssssssssssssssssssssiiii",
+$amId, $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
+$texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
+$texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $userId2, $role, $frecuencia, $rubroId
+
+);
+
+$insert -> execute();         
+
+}   
+   
+   
+   
 
 echo "<script> window.location='../c/project.php?m=index&mod=28'</script>";
