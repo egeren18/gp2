@@ -163,7 +163,7 @@ if($mz -> statusId == 1) {?>
 
 
         <tr>
-            <td id="border-grey">Revisi&oacute;n de Controles por Ciclos Transaccionales</td>
+            <td id="border-grey">Revisi&oacute;n de Controles por Ciclos Transaccionaless</td>
             <td id="border-grey"></td>
             <td id="border-grey" class="right-align"></td>
             <td id="border-grey" class="right-align"></td>
