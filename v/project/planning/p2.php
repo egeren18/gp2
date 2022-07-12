@@ -96,19 +96,19 @@ $contadorr++;
     <?php 
                 $_mp = mysqli_query($connection, "
                     SELECT * FROM riesgo
-                    WHERE status = 1
+                    WHERE status = 1 and projectId = '" . $c ."' and amId = '" . $amId ."'
                     ");
                 
                 while ($mp = $_mp -> fetch_object()) {?>
           <tr>
-            <td id="border-grey"> <?php echo $mp -> orName;?></td>
-            <td id="border-grey"><?php echo $mp -> onName;?></td>
-            <td id="border-grey"><?php echo $mp -> rN;?></td>
-            <td id="border-grey"><?php echo $mp -> rC;?></td>
-            <td id="border-grey"><?php echo $mp -> cG;?></td>
-            <td id="border-grey"><?php echo $mp -> aiF;?></td>
-            <td id="border-grey"><?php echo $mp -> eA;?></td>
-            <td id="border-grey"><?php echo $mp -> iC;?></td>
+            <td id="border-grey" > <?php echo $mp -> orName;?></td>
+            <td id="border-grey" ><?php echo $mp -> onName;?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($mp -> rN);?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($mp -> rC) ;?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($mp -> cG) ;?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($mp -> aiF);?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($mp -> eA);?></td>
+            <td id="border-grey" class="right-align"><?php echo number_format($mp -> iC);?></td>
           </tr>
 
         <?php } ?>
@@ -170,7 +170,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"></td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&service=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>
@@ -250,7 +250,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&service=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>
@@ -347,7 +347,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&service=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>
@@ -436,10 +436,10 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey"><?php echo $name ; ?></td>
             <td id="border-grey" class="right-align"><?php echo number_format($m1); ?></td>
             <td id="border-grey" class="right-align"><?php echo number_format($m2); ?></td>
-            <td id="border-grey" class="right-align"><?php echo number_format($m3); ?>  </td>
+            <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&i=<?php echo $i; ?>&f=1&r=<?php echo  $ra -> rubroId; ?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&service=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>
