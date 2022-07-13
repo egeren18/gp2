@@ -8,26 +8,26 @@ while($contadorr <= $npregunta){
             <tr>
                 <td class="blue-grey lighten-2 white-text" style="line-height : 20px;">
                     <?php
-                    if ($contadorr >= 1){ echo $mmodelo -> texto1;}
-                    if ($contadorr >= 2){ echo $mmodelo -> texto2;}
-                    if ($contadorr >= 3){ echo $mmodelo -> texto3;}
-                    if ($contadorr >= 4){ echo $mmodelo -> texto4;}
-                    if ($contadorr >= 5){ echo $mmodelo -> texto5;}
-                    if ($contadorr >= 6){ echo $mmodelo -> texto6;}
-                    if ($contadorr >= 7){ echo $mmodelo -> texto7;}
-                    if ($contadorr >= 8){ echo $mmodelo -> texto8;}
-                    if ($contadorr >= 9){ echo $mmodelo -> texto9;}
-                    if ($contadorr >= 10){ echo $mmodelo -> texto10;}
-                    if ($contadorr >= 11){ echo $mmodelo -> texto11;}
-                    if ($contadorr >= 12){ echo $mmodelo -> texto12;}
-                    if ($contadorr >= 13){ echo $mmodelo -> texto13;}
-                    if ($contadorr >= 14){ echo $mmodelo -> texto14;}
-                    if ($contadorr >= 15){ echo $mmodelo -> texto15;}
-                    if ($contadorr >= 16){ echo $mmodelo -> texto16;}
-                    if ($contadorr >= 17){ echo $mmodelo -> texto17;}
-                    if ($contadorr >= 18){ echo $mmodelo -> texto18;}
-                    if ($contadorr >= 19){ echo $mmodelo -> texto19;}
-                    if ($contadorr >= 20){ echo $mmodelo -> texto20;}?>
+                    if ($contadorr == 1){ echo $mmodelo -> texto1;}
+                    if ($contadorr == 2){ echo $mmodelo -> texto2;}
+                    if ($contadorr == 3){ echo $mmodelo -> texto3;}
+                    if ($contadorr == 4){ echo $mmodelo -> texto4;}
+                    if ($contadorr == 5){ echo $mmodelo -> texto5;}
+                    if ($contadorr == 6){ echo $mmodelo -> texto6;}
+                    if ($contadorr == 7){ echo $mmodelo -> texto7;}
+                    if ($contadorr == 8){ echo $mmodelo -> texto8;}
+                    if ($contadorr == 9){ echo $mmodelo -> texto9;}
+                    if ($contadorr == 10){ echo $mmodelo -> texto10;}
+                    if ($contadorr == 11){ echo $mmodelo -> texto11;}
+                    if ($contadorr == 12){ echo $mmodelo -> texto12;}
+                    if ($contadorr == 13){ echo $mmodelo -> texto13;}
+                    if ($contadorr == 14){ echo $mmodelo -> texto14;}
+                    if ($contadorr == 15){ echo $mmodelo -> texto15;}
+                    if ($contadorr == 16){ echo $mmodelo -> texto16;}
+                    if ($contadorr == 17){ echo $mmodelo -> texto17;}
+                    if ($contadorr == 18){ echo $mmodelo -> texto18;}
+                    if ($contadorr == 19){ echo $mmodelo -> texto19;}
+                    if ($contadorr == 20){ echo $mmodelo -> texto20;}?>
                 </td>
                 <td style="width: 50px;" class="blue-grey lighten-3 center-align">
                     <i style="margin: 0;" class="material-icons white-text">edit</i>
@@ -170,7 +170,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"></td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&service=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>
@@ -206,10 +206,17 @@ if($mz -> statusId == 1) {?>
     <tbody>
 
         <?php
-      
+         $_ara = mysqli_query($pquest, "
+            SELECT * FROM permisos$vv
+            WHERE amId = '" . $amId . "' 
+            ");    
+            $ara = $_ara -> fetch_object();
+         $frecuencia = $ara -> frecuencia;
+            
+
         $_ra = mysqli_query($connection, "
             SELECT * FROM ractivo
-            WHERE projectId = '" . $c . "'  and tipoId = 1
+            WHERE projectId = '" . $c . "'  and tipoId = 1 and frecuencia = '" . $frecuencia . "'
         ");    
 
             while ($ra = $_ra -> fetch_object()) {
@@ -250,7 +257,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&service=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>
@@ -306,7 +313,7 @@ if($mz -> statusId == 1) {?>
       
         $_ra = mysqli_query($connection, "
             SELECT * FROM ractivo
-            WHERE projectId = '" . $c . "' and tipoId = 2
+            WHERE projectId = '" . $c . "' and tipoId = 2 and frecuencia = '" . $frecuencia . "'
         ");    
 
             while ($ra = $_ra -> fetch_object()) {
@@ -347,7 +354,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&service=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>
@@ -399,7 +406,7 @@ if($mz -> statusId == 1) {?>
       
         $_ra = mysqli_query($connection, "
             SELECT * FROM ractivo
-            WHERE projectId = '" . $c . "'  and tipoId = 3
+            WHERE projectId = '" . $c . "'  and tipoId = 3 and frecuencia = '" . $frecuencia . "'
         ");    
 
             while ($ra = $_ra -> fetch_object()) {
@@ -439,7 +446,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&service=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>

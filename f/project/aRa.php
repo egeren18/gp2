@@ -21,22 +21,32 @@ $text = $_POST["text"];
 $monto1 = $_POST["monto1"];
 $monto2 = $_POST["monto2"];
 $o = $_POST["text"];
-$obs = $_POST["obs"];
+
+$_f = mysqli_query($pquest, "
+    SELECT * FROM permisos34_1_4
+    WH amId = '" . $amId . "'
+");
+
+//whilepara meter permisos   
+$m1 = $_f -> fetch_object();
+
+$frecuencia = $m1 -> frecuencia;
+
 
 
     $insert = $connection -> prepare ("
         INSERT INTO ractivo
-        (tipoId, projectId, amId, rubroId, monto1, monto2, obs)
+        (tipoId, projectId, amId, rubroId, monto1, monto2, obs, frecuencia)
         VALUES
         (?,?,?,?,?,?,?)
     ");
 
     $insert -> bind_param (
         "iiiiiis",
-     $a, $c, $amId, $rubroId, $monto1, $monto2, $o
+     $a, $c, $amId, $rubroId, $monto1, $monto2, $o, $frecuencia
     );
 
     $insert -> execute();
 
 
-echo "<script> window.location='../c/project.php?m=ccreate&p=p&c={$c}&amId={$amId}&serviceId={$serviceId}&md={$md}'</script>";  
+    echo "<script> javascript: history.go(-1);</script>"; 

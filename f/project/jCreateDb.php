@@ -96,6 +96,7 @@ $vv=$serviceId.'_'.$md;
     access int(11) DEFAULT '0',
     v varchar(200) DEFAULT NULL,
     userComplete int(11) DEFAULT '0',
+    frecuencia int(11) DEFAULT NULL,
     rubroId int(11) DEFAULT NULL
     )";
    $pquest->query($sql);  
@@ -208,31 +209,31 @@ $rubroId = $m1 -> rubroId;
 if ($modeloId == 11){
     $contador = 1;
     while($contador <= $frecuencia){
-        $contador++;
+        
 // insertar 
     $insert = $pquest -> prepare ("
         INSERT INTO project$v
         (mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
         texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
-        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, rubroId
+        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, rubroId, frecuencia
         )
         VALUES
         (?,?,?,?,?,?,?,?,?,?,
          ?,?,?,?,?,?,?,?,?,?,
-         ?,?,?,?,?,?,?,?,?,?,?,?)
+         ?,?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $insert -> bind_param (
-        "iiiiiiiiissssssssssssssssssssssi",
+        "iiiiiiiiissssssssssssssssssssssii",
         $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
         $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
-        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $rubroId
+        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $rubroId, $contador
         
     );
 
     $insert -> execute();         
         
-        
+    $contador++;        
     }
     
 }
@@ -240,56 +241,55 @@ if ($modeloId == 11){
 if ($modeloId == 12){
     $contador = 1;
     while($contador <= $frecuencia){
-        $contador++;
+        
 // insertar 
     $insert = $pquest -> prepare ("
         INSERT INTO project$v
         (mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
         texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
-        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, rubroId
+        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, rubroId, frecuencia
         )
         VALUES
         (?,?,?,?,?,?,?,?,?,?,
          ?,?,?,?,?,?,?,?,?,?,
-         ?,?,?,?,?,?,?,?,?,?,?,?)
+         ?,?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $insert -> bind_param (
-        "iiiiiiiiissssssssssssssssssssssi",
+        "iiiiiiiiissssssssssssssssssssssii",
         $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
         $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
-        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $rubroId
+        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $rubroId, $contador
         
     );
 
     $insert -> execute();         
-        
-        
+    $contador++;
     }
     
 }
 if ($modeloId == 2){
     $contador = 1;
     while($contador <= $frecuencia){
-        $contador++;
+        
 // insertar 
     $insert = $pquest -> prepare ("
         INSERT INTO project$v
         (mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
         texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
-        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, rubroId
+        texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, rubroId, frecuencia
         )
         VALUES
         (?,?,?,?,?,?,?,?,?,?,
          ?,?,?,?,?,?,?,?,?,?,
-         ?,?,?,?,?,?,?,?,?,?,?,?)
+         ?,?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $insert -> bind_param (
-        "iiiiiiiiissssssssssssssssssssssi",
+        "iiiiiiiiissssssssssssssssssssssii",
         $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
         $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
-        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $rubroId
+        $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $rubroId, $contador
         
     );
 
@@ -305,6 +305,7 @@ $modelo = $connection -> prepare ("
 
 $modelo -> bind_param ("ii", $id , $ii);
 $modelo -> execute();  
+$contador++;
     }
     
 }
@@ -469,6 +470,7 @@ $texto19 = $m1 -> texto19;
 $texto20 = $m1 -> texto20;
 $normaText = $m1 -> normaText;
 $date = $m1 -> date;
+$frecuencia = $m1 -> frecuencia;
 
 //insert para el llenado 
 $insert = $pquest -> prepare ("
@@ -476,21 +478,20 @@ INSERT INTO permisos$v
 (amId, mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
 texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
 texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date,
-userId, role
+userId, role, frecuencia 
 )
 VALUES
 (?,?,?,?,?,?,?,?,?,?,?,
  ?,?,?,?,?,?,?,?,?,?,
  ?,?,?,?,?,?,?,?,?,?,?,
- ?,?)
+ ?,?,?)
 ");
 
 $insert -> bind_param (
-"iiiiiiiiiissssssssssssssssssssssii",
+"iiiiiiiiiissssssssssssssssssssssiii",
 $amId, $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
 $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
-$texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $userId, $role
-
+$texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $userId, $role, $frecuencia
 );
 
 $insert -> execute();         
@@ -540,26 +541,27 @@ $texto19 = $m1 -> texto19;
 $texto20 = $m1 -> texto20;
 $normaText = $m1 -> normaText;
 $date = $m1 -> date;
+$frecuencia = $m1 -> frecuencia;
 //insert para el llenado 
 $insert = $pquest -> prepare ("
 INSERT INTO permisos$v
 (amId,mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
 texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
 texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date,
-userId, role
+userId, role, frecuencia
 )
 VALUES
 (?,?,?,?,?,?,?,?,?,?,?,
  ?,?,?,?,?,?,?,?,?,?,
  ?,?,?,?,?,?,?,?,?,?,?,
- ?,?)
+ ?,?,?)
 ");
 
 $insert -> bind_param (
-"iiiiiiiiiissssssssssssssssssssssii",
+"iiiiiiiiiissssssssssssssssssssssiii",
 $amId, $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
 $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
-$texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $userId2, $role
+$texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $userId2, $role, $frecuencia
 
 );
 
