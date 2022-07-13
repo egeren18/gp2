@@ -97,7 +97,8 @@ $contadorr++;
             <td id="border-white" class="right-align" width="10%">Monto 2</td>
             <td id="border-white" class="right-align" width="10%">Var en Bs </td>
             <td id="border-white" class="right-align" width="10%">Var en %  </td>
-            <td id="border-white" class="right-align" width="25%">Observaciones   </td>
+            <td id="border-white" class="right-align" width="12%">Observaciones   </td>
+            <td id="border-white" class="center-align" width="12%">Acci&oacute;n</td>
         </tr>
     </thead>
                         
@@ -148,7 +149,10 @@ $contadorr++;
             <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?></td>
+            
             <td id="border-grey" class="center"> 
+            <a><i style="margin: 0;" class="material-icons blue-text">edit</i></a>
+                <a><i style="margin: 0;" class="material-icons red-text">delete</i></a>
             </td>   
         </tr>
         
@@ -185,7 +189,8 @@ $contadorr++;
             <td id="border-white" class="right-align" width="10%">Monto 2</td>
             <td id="border-white" class="right-align" width="10%">Var en Bs </td>
             <td id="border-white" class="right-align" width="10%">Var en %  </td>
-            <td id="border-white" class="right-align" width="25%">Observaciones   </td>
+            <td id="border-white" class="right-align" width="12%">Observaciones   </td>
+            <td id="border-white" class="center-align" width="12%">Acci&oacute;n</td>
         </tr>
     </thead>
                         
@@ -237,6 +242,8 @@ $contadorr++;
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?></td>
             <td id="border-grey" class="center"> 
+                <a><i style="margin: 0;" class="material-icons blue-text">edit</i></a>
+                <a><i style="margin: 0;" class="material-icons red-text">delete</i></a>
             </td>   
         </tr>
         
@@ -272,7 +279,9 @@ $contadorr++;
             <td id="border-white" class="right-align" width="10%">Monto 2</td>
             <td id="border-white" class="right-align" width="10%">Var en Bs </td>
             <td id="border-white" class="right-align" width="10%">Var en %  </td>
-            <td id="border-white" class="right-align" width="25%">Observaciones   </td>
+            <td id="border-white" class="right-align" width="12%">Observaciones   </td>
+            <td id="border-white" class="center-align" width="12%">Acci&oacute;n</td>
+            
         </tr>
     </thead>
                         
@@ -324,6 +333,8 @@ $contadorr++;
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?></td>
             <td id="border-grey" class="center"> 
+            <a><i style="margin: 0;" class="material-icons blue-text">edit</i></a>
+            <a><i style="margin: 0;" class="material-icons red-text">delete</i></a>
             </td>   
         </tr>
         
