@@ -11,10 +11,26 @@ include '../allow.php';
 $module = 'project';
 $action = 'revison';
 
+
+// var
 $c = $_GET["c"];
-$i = $_GET["i"];
-$f = $_GET["f"];
-$r = $_GET["r"];
+$serviceId = $_GET["serviceId"];
+$md = $_GET["md"];
+$amId = $_GET["amId"];
+$rubroId = $_GET["rubroId"];
+$frecuencia = $_GET["frecuencia"];
+$v =$serviceId.'_'.$md;
+$vv =$c.'_'.$serviceId.'_'.$md;
+
+
+
+
+
+
+
+
+
+
 
 // select
 
