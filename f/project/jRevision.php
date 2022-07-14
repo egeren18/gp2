@@ -18,6 +18,7 @@ $serviceId = $_GET["serviceId"];
 $md = $_GET["md"];
 $amId = $_GET["amId"];
 $rubroId = $_GET["rubroId"];
+$frecuencia = $_GET["frecuencia"];
 $v =$serviceId.'_'.$md;
 $vv =$c.'_'.$serviceId.'_'.$md;
 
@@ -54,7 +55,7 @@ $service = $_service -> fetch_object();
 $_nature = mysqli_query($master, "SELECT * FROM service INNER JOIN nature ON service.natureId = nature.natureId WHERE service.serviceId = '" . $service -> serviceId . "'");
 $nature = $_nature -> fetch_object();
 
-$_mmodelo = mysqli_query($pquest, "SELECT * FROM permisos$vv WHERE amId = '" . $amId . "'");
+$_mmodelo = mysqli_query($pquest, "SELECT * FROM ejecucion$vv WHERE  frecuencia = '" . $frecuencia  .  "'  and rubroId = '" . $rubroId . "'");
 
 
 // view

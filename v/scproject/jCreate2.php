@@ -620,7 +620,7 @@
                                                     <div class="col s12 m-t-30 ">
                                                         <label>
                                                             <input name="tilde" type="checkbox" class="validate filled-in"/>
-                                                            <span style="color-text:black;">Este cuestionareio ya ha sido cargado, esta seguro que desea hacer un update?</span>
+                                                            <span style="color:black;">Este cuestionareio ya ha sido cargado, esta seguro que desea hacer un update?</span>
                                                         </label>
                                                     </div>
                                                     <div class="col s12 m-t-10 ">

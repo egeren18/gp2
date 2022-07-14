@@ -170,7 +170,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"></td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>&frecuencia=<?php echo $frecuencia;?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>
@@ -257,7 +257,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>&frecuencia=<?php echo $frecuencia;?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>
@@ -354,7 +354,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>&frecuencia=<?php echo $frecuencia;?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>
@@ -446,7 +446,7 @@ if($mz -> statusId == 1) {?>
             <td id="border-grey" class="right-align"><?php echo number_format($m3) ?>  </td>
             <td id="border-grey" class="right-align"> </td>
             <td id="border-grey" class="right-align"><?php echo $ra -> obs; ?> </td>
-            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
+            <td id="border-grey" class="right-align"><a href="../c/project.php?m=revision&p=p&c=<?php echo $c;?>&amId=<?php echo $amId;?>&serviceId=<?php echo $serviceId;?>&md=<?php echo  $md; ?>&rubroId=<?php echo $ra -> rubroId?>&frecuencia=<?php echo $frecuencia;?>" class="tooltipped m-r-5" data-position="left" data-tooltip="Asignar asrciones y tareas por frecuencia">
                  <i class="material-icons blue-text">edit</i>
                   </a>    
             </td>

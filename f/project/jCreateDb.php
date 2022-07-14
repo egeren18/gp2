@@ -106,7 +106,8 @@ $vv=$serviceId.'_'.$md;
 //formato
  // sql Crea la tabla usando Lenguaje PHP
  $sql = "CREATE TABLE ejecucion$v (
-    amId INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    aId INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    amId int(11) DEFAULT NULL, 
     mmodeloId int(11) DEFAULT NULL, 
     serviceId int(11) DEFAULT NULL, 
     etapaId int(11) DEFAULT NULL,
@@ -154,7 +155,15 @@ $vv=$serviceId.'_'.$md;
     v varchar(200) DEFAULT NULL,
     frecuencia int(11) DEFAULT NULL,
     userComplete int(11) DEFAULT '0',
-    rubroId int(11) DEFAULT NULL
+    rubroId int(11) DEFAULT NULL,
+    a1 int(11) DEFAULT '0',
+    a2 int(11) DEFAULT '0',
+    a3 int(11) DEFAULT '0',
+    a4 int(11) DEFAULT '0',
+    a5 int(11) DEFAULT '0',
+    a6 int(11) DEFAULT '0',
+    a7 int(11) DEFAULT '0',
+    fe int(11) DEFAULT '0'
     )";
    $pquest->query($sql);
    
@@ -169,7 +178,7 @@ $_mcr = mysqli_query($appf, "
 
 while($m1 = $_mcr -> fetch_object())
 {
-
+$amId = $m1 -> amId;
 $mmodeloId = $m1 -> mmodeloId;
 $serviceId = $m1 -> serviceId;
 $etapaId = $m1 -> etapaId;
@@ -344,19 +353,19 @@ if ($modeloId != 2 and $modeloId != 11 and $modeloId != 12  and $etapaId == 3){
         $fr++;
     $insert = $pquest -> prepare ("
         INSERT INTO ejecucion$v
-        (mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
+        (amId,mmodeloId, serviceId, etapaId, mcategoriaId, cacId, actividadId, mId, modeloId, npregunta, texto1,
         texto2, texto3, texto4, texto5, texto6, texto7, texto8, texto9, texto10, texto11,
         texto12, texto13, texto14, texto15, texto16, texto17, texto18, texto19, texto20, normaText, date, frecuencia, rubroId
         )
         VALUES
-        (?,?,?,?,?,?,?,?,?,?,
+        (?,?,?,?,?,?,?,?,?,?,?,
          ?,?,?,?,?,?,?,?,?,?,
          ?,?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $insert -> bind_param (
-        "iiiiiiiiissssssssssssssssssssssii",
-        $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
+        "iiiiiiiiiissssssssssssssssssssssii",
+        $amId, $mmodeloId, $serviceId, $etapaId, $mcategoriaId, $cacId, $actividadId, $mId, $modeloId, $npregunta, $texto1,
         $texto2, $texto3, $texto4, $texto5, $texto6, $texto7, $texto8, $texto9, $texto10, $texto11,
         $texto12, $texto13, $texto14, $texto15, $texto16, $texto17, $texto18, $texto19, $texto20, $normaText, $d, $fr, $rubroId
         
